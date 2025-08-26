@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import menuRoutes from './routes/menuRoutes';
+import restaurantRoutes from './routes/restaurantRoutes';
 
 const app: Express = express();
 
@@ -13,5 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 
 // Use menu routes
 app.use('/api/menus', menuRoutes);
+// Use restaurant routes
+app.use('/api/restaurants', restaurantRoutes);
 
 export default app;
