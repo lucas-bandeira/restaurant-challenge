@@ -1,0 +1,33 @@
+{
+  "name": "pop-menu-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "lucas bonifacio <lucas4workl8tr@gmail.com>",
+  "license": "ISC",
+  "repository": "https://github.com/lucas-bandeira/restaurant-challenge.git",
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "express": "^5.1.0",
+    "prisma": "^6.14.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
