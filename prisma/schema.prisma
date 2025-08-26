@@ -7,16 +7,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Restaurant {
+  id    String @id @default(cuid())
+  name  String @unique
+  menus Menu[]
+}
+
 model Menu {
-  id        String     @id @default(cuid())
-  name      String
-  menuItems MenuItem[]
+  id           String     @id @default(cuid())
+  name         String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+  menuItems    MenuItem[]
 }
 
 model MenuItem {
-  id     String @id @default(cuid())
-  name   String
-  price  Float
-  menu   Menu   @relation(fields: [menuId], references: [id])
-  menuId String
+  id    String @id @default(cuid())
+  name  String @unique
+  price Float
+  menus Menu[]
 }
