@@ -1,10 +1,11 @@
+// src/tests/restaurants.test.ts
 import request from 'supertest';
 import app from '../app'; // Import your express app
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-beforeAll(async () => {
+beforeEach(async () => {
     await prisma.menuItem.deleteMany({});
     await prisma.menu.deleteMany({});
     await prisma.restaurant.deleteMany({});
@@ -34,6 +35,7 @@ describe('GET /api/restaurants', () => {
             .expect('Content-Type', /json/)
             .expect(200);
 
+        // Assertions to verify the response
         expect(response.body).toBeInstanceOf(Array);
         expect(response.body.length).toBe(2);
         expect(response.body[0].name).toBe("Poppo's Cafe");
@@ -41,4 +43,5 @@ describe('GET /api/restaurants', () => {
         expect(response.body[0].menus.length).toBe(1);
         expect(response.body[1].name).toBe("Casa del Poppo");
     });
+
 });
